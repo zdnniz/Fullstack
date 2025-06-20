@@ -22,10 +22,6 @@ import SettingsProfile from '../src/pages/Admin/SettingsProfile';
 import Announcement from '../src/pages/Admin/Announcement';
 
 import StudentAssignments from '../src/pages/Students/Assignments';
-//import ExamSection from '../src/pages/Students/Exams';
-//import PerformanceSection from '../src/pages/Students/Performance';
-//import AttendanceSection from '../src/pages/Students/Attendance';
-//import LibrarySection from '../src/pages/Students/Library';
 import AnnouncementSection from '../src/pages/Students/Announcement';
 import ProfileSection from '../src/pages/Students/Profile';
 
