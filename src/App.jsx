@@ -9,10 +9,6 @@ import AdminDashboard from '../src/pages/Admin/Dashboard';
 import StudentDashboard from '../src/pages/Students/Dashboard';
 import TeacherDashboard from '../src/pages/Teachers/Dashboard';
 
-//import Classes from '../src/pages/Admin/Classes';
-//import Exam from '../src/pages/Admin/Exam';
-//import Attendance from '../src/pages/Admin/Attendance';
-//import Performance from '../src/pages/Admin/Performance';
 import Teachers from '../src/pages/Admin/Teachers';
 import Students from '../src/pages/Admin/Students';
 import Assignments from '../src/pages/Admin/Assignments';
