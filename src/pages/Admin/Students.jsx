@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import {
   StudentsContainer,
   Content,
@@ -97,6 +98,10 @@ const Students = () => {
           <div style={{ marginBottom: '1rem' }}>
             <strong>Search Result:</strong> <br />
             {searchedStudent.name} - {searchedStudent.age} - {searchedStudent.grade}
+            <br />
+            <Link to={`/students/detail?name=${encodeURIComponent(searchedStudent.name)}`}>
+              <AddStudentButton>View Details</AddStudentButton>
+            </Link>
           </div>
         )}
 

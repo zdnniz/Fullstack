@@ -2,13 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import {
   StudentsContainer, Content, StudentsContent, StudentsHeader, StudentList, StudentItem, AddStudentInput,
   AddStudentButton
 } from '../../styles/StudentsStyles';
 
 const StudentSection = () => {
-  //const [newStudent, setNewStudent] = useState({ name: '', registrationNumber: '', grade: '' });
   const [students, setStudents] = useState([]);
   const [searchName, setSearchName] = useState('');
   const [searchedStudent, setSearchedStudent] = useState(null);
@@ -77,6 +77,10 @@ const StudentSection = () => {
           <div style={{ marginBottom: '1rem' }}>
             <strong>Search Result:</strong> <br />
             {searchedStudent.name} - {searchedStudent.age} - {searchedStudent.grade}
+            <br />
+            <Link to={`/students/detail?name=${encodeURIComponent(searchedStudent.name)}`}>
+              <AddStudentButton>View Details</AddStudentButton>
+            </Link>
           </div>
         )}
 

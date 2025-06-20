@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import {
   TeachersContainer, Content, TeachersContent, TeachersHeader, TeacherList, TeacherItem, AddTeacherInput,
   AddTeacherButton
@@ -46,7 +47,7 @@ const TeacherSection = () => {
       const response = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/v1/teachers/${id}`, editingTeacher);
       console.log("Updated:", response.data);
       setEditingTeacher(null);
-      fetchTeachers(); 
+      fetchTeachers();
     } catch (error) {
       console.error("Error updating teacher:", error);
     }
@@ -79,6 +80,10 @@ const TeacherSection = () => {
           <div style={{ marginBottom: '1rem' }}>
             <strong>Search Result:</strong> <br />
             {searchedTeacher.name} - {searchedTeacher.email} - {searchedTeacher.subject}
+            <br />
+            <Link to={`/teachers/detail?email=${encodeURIComponent(searchedTeacher.email)}`}>
+              <AddTeacherButton>View Details</AddTeacherButton>
+            </Link>
           </div>
         )}
 

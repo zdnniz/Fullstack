@@ -12,25 +12,20 @@ import TeacherDashboard from '../src/pages/Teachers/Dashboard';
 import Teachers from '../src/pages/Admin/Teachers';
 import Students from '../src/pages/Admin/Students';
 import Assignments from '../src/pages/Admin/Assignments';
-//import Library from '../src/pages/Admin/Library';
-//import EventCalender from '../src/pages/Admin/EventCalender';
 import SettingsProfile from '../src/pages/Admin/SettingsProfile';
 import Announcement from '../src/pages/Admin/Announcement';
 
 import StudentAssignments from '../src/pages/Students/Assignments';
 import AnnouncementSection from '../src/pages/Students/Announcement';
 import ProfileSection from '../src/pages/Students/Profile';
+import StudentDetail from'./pages/Teachers/StudentDetail.jsx';
 
-//import ClassSection from '../src/pages/Teachers/Classes';
 import StudentSection from '../src/pages/Teachers/Students';
 import TeacherSection from '../src/pages/Teachers/Teachers';
-//import CheckPerformanceSection from '../src/pages/Teachers/Performance';
-//import EventSection from '../src/pages/Teachers/Events';
 import TeacherProfileSection from '../src/pages/Teachers/Profile';
 import CheckAnnouncementSection from '../src/pages/Teachers/Announcement';
 import AssignmentSection from '../src/pages/Teachers/Assignments';
-//import CheckAttendanceSection from '../src/pages/Teachers/Attendance';
-//import CheckExamSection from '../src/pages/Teachers/Exams';
+import TeacherDetail from '../src/pages/Teachers/TeacherDetail';
 
 const App = () => { 
   return (
@@ -62,6 +57,7 @@ const App = () => {
         {/* Students sections here  */}
 
         <Route exact path="/student/assignments" element={<StudentAssignments />} />
+        <Route path="/students/detail" element={<StudentDetail />} />
         <Route exact path="/student/communication" element={<AnnouncementSection/>} />
         <Route exact path="/student/settings" element={<ProfileSection />} />
 
@@ -71,6 +67,7 @@ const App = () => {
         <Route exact path="/teacher/assignments" element={<AssignmentSection />} />
         <Route exact path="/teacher/communication" element={<CheckAnnouncementSection />} />
         <Route exact path="/teacher/settings" element={<TeacherProfileSection/>} />
+        <Route path="/teachers/detail" element={<TeacherDetail />} />
 
       </Routes>
     </Router>
