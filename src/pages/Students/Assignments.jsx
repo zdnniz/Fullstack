@@ -17,23 +17,7 @@ const StudentAssignments = () => {
 
   useEffect(() => {
     fetchLoggedInStudent();
-    //fetchAssignments();
   }, []);
-
-  /*const fetchAssignments = async () => {
-    try {
-      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/assignments/getall`);
-      const allAssignments = response.data.assignments;
-      const filtered = allAssignments.filter(
-        (assignment) =>
-          assignment.students &&
-          assignment.students.includes(searchName)
-      );
-      setAssignments(filtered);
-    } catch (error) {
-      console.error('Error fetching assignments:', error);
-    }
-  };*/
 
   const fetchAssignments = async (studentName) => {
     try {
@@ -75,7 +59,7 @@ const StudentAssignments = () => {
       <SidebarContainer>
         <Sidebar />
       </SidebarContainer>
-      <Content>
+      <Content isOpen={true}>
         <h1>Your Assignments</h1>
         {assignments.length === 0 ? (
           <p>No assignments assigned to you yet.</p>

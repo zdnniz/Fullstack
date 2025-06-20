@@ -12,7 +12,9 @@ export const AssignmentsContainer = styled.div`
 `;
 
 export const Content = styled.div`
-  flex: 1;
+margin-left: ${({ isOpen }) => (isOpen ? '250px' : '80px')};
+padding: 20px;
+transition: margin-left 0.3s ease;
 `;
 
 export const AssignmentsContent = styled.div`

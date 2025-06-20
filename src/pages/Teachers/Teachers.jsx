@@ -66,7 +66,7 @@ const TeacherSection = () => {
   return (
     <TeachersContainer>
       <Sidebar />
-      <Content>
+      <Content isOpen = {true}>
         <div style={{ marginBottom: '1rem' }}>
           <AddTeacherInput
             type="text"

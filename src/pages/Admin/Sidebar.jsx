@@ -78,12 +78,12 @@ const ToggleIcon = styled.span`
   transition: transform 0.3s ease;
 `;
 
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+const Sidebar = ({ isOpen, toggleSidebar }) => {
+  //const [isOpen, setIsOpen] = useState(true);
 
-  const toggleSidebar = () => {
+  /*const toggleSidebar = () => {
     setIsOpen(!isOpen);
-  };
+  };*/
 
   return (
     <SidebarContainer style={{ width: isOpen ? '250px' : '80px' }}>

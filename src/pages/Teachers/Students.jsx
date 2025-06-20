@@ -13,6 +13,9 @@ const StudentSection = () => {
   const [searchName, setSearchName] = useState('');
   const [searchedStudent, setSearchedStudent] = useState(null);
   const [editingStudent, setEditingStudent] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);  
+
+  const toggleSidebar = () => setIsSidebarOpen(prev => !prev);
 
   useEffect(() => {
     fetchStudents();
@@ -62,8 +65,8 @@ const StudentSection = () => {
 
   return (
     <StudentsContainer>
-      <Sidebar />
-      <Content>
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
+      <Content isOpen={isSidebarOpen}>
         <div style={{ marginBottom: '1rem' }}>
           <AddStudentInput
             type="text"
