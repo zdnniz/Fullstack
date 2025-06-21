@@ -9,6 +9,7 @@ import MapWithDirections from '../../components/MapWithDirections'
 const TeacherDashboard = () => {
   const [teacherCount, setTeacherCount] = useState(0);
   const [studentCount, setStudentCount] = useState(0);
+  const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
     fetchCounts();
@@ -26,10 +27,14 @@ const TeacherDashboard = () => {
     }
   };
 
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <TeacherDashboardContainer>
-      <Sidebar />
-      <Content>
+      <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
+      <Content isOpen={isOpen}>
         <Section>
           <SectionTitle>Overview</SectionTitle>
           <CardContainer>

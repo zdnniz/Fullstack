@@ -79,12 +79,6 @@ const ToggleIcon = styled.span`
 `;
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
-  //const [isOpen, setIsOpen] = useState(true);
-
-  /*const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };*/
-
   return (
     <SidebarContainer style={{ width: isOpen ? '250px' : '80px' }}>
       <SidebarHeader>

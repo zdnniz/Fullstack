@@ -1,8 +1,7 @@
 // Home.js
 import React from 'react';
-import { Navbar, Logo, NavigationLinks, NavLink, ButtonsContainer, LoginButton, HomeContainer, SchoolInfo, SchoolImage, Title, LoremTextContainer } 
+import { Navbar, Logo, NavigationLinks, NavLink, ButtonsContainer, LoginButton, HomeContainer, SchoolInfo, SchoolImage, Title, LoremTextContainer, GuestButton } 
 from '../styles/styles'
-//import { LoremIpsum } from 'lorem-ipsum';
 import bg from "../assets/bg.png";
 import bg1 from "../assets/bg1.png";
 import { useNavigate } from 'react-router-dom'; 
@@ -13,6 +12,10 @@ const Home = () => {
   const handleLoginClick = () => {
     navigate('/choose-user');
   };
+
+  const handleAdminRegister = () => {
+    navigate('/admin-register');
+  }
 
   return (
     <>
@@ -25,6 +28,7 @@ const Home = () => {
         </NavigationLinks>
         <ButtonsContainer>
           <LoginButton onClick={handleLoginClick}>Sign In</LoginButton>
+          <GuestButton onClick={handleAdminRegister}>Admin Register</GuestButton>
         </ButtonsContainer>
       </Navbar>
       <HomeContainer>

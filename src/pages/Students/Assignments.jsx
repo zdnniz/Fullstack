@@ -59,7 +59,7 @@ const StudentAssignments = () => {
       <SidebarContainer>
         <Sidebar />
       </SidebarContainer>
-      <Content isOpen={true}>
+      <Content >
         <h1>Your Assignments</h1>
         {assignments.length === 0 ? (
           <p>No assignments assigned to you yet.</p>

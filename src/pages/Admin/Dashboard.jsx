@@ -6,8 +6,6 @@ import axios from 'axios';
 import {
   AdminDashboardContainer,
   Content,
-  TopContent,
-  BottomContent,
   Section,
   SectionTitle,
   CardContainer,
@@ -17,7 +15,6 @@ import {
 } from '../../styles/DashboardStyles';
 import MapWithDirections from '../../components/MapWithDirections'
 
-
 const AdminDashboard = () => {
   const [teacherCount, setTeacherCount] = useState(0);
   const [studentCount, setStudentCount] = useState(0);
@@ -25,10 +22,8 @@ const AdminDashboard = () => {
   const [announcements, setAnnouncements] = useState([]);
 
   useEffect(() => {
-    //fetchEvents();
     fetchAnnouncements();
     fetchCounts();
-    //fetchStudentPerformance();
   }, []);
 
   const fetchCounts = async () => {
@@ -52,11 +47,14 @@ const AdminDashboard = () => {
     }
   };
 
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <AdminDashboardContainer>
-      <Sidebar />
-      <Content isOpen={isOpen}>
-        <TopContent>
+      <Sidebar isOpen={true} toggleSidebar={toggleSidebar} />
+      <Content isOpen={true}>
           <Section>
             <SectionTitle>Overview</SectionTitle>
             <CardContainer>
@@ -71,16 +69,12 @@ const AdminDashboard = () => {
             </CardContainer>
           </Section>
 
-        </TopContent>
-
         <Section>
           <SectionTitle>Route Planner</SectionTitle>
           <MapWithDirections />
         </Section>
         
-        <BottomContent>
           <Announcement announcements={announcements} />
-        </BottomContent>
       </Content>
     </AdminDashboardContainer>
   );

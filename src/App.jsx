@@ -8,6 +8,7 @@ import TeacherSignIn from '../src/components/TeacherSignIn';
 import AdminDashboard from '../src/pages/Admin/Dashboard';
 import StudentDashboard from '../src/pages/Students/Dashboard';
 import TeacherDashboard from '../src/pages/Teachers/Dashboard';
+import AdminRegister from './components/AdminRegister.jsx';
 
 import Teachers from '../src/pages/Admin/Teachers';
 import Students from '../src/pages/Admin/Students';
@@ -33,6 +34,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/choose-user" element={<ChooseUser />} />
+        <Route path="/admin-register" element={<AdminRegister />} />
 
         {/* All the sign-in pages/routes */}
 

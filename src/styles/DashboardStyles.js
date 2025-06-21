@@ -6,7 +6,6 @@ export const AdminDashboardContainer = styled.div`
 `;
 
 export const Content = styled.div`
-  flex: 1;
   padding: 20px;
   margin-left: ${({ isOpen }) => (isOpen ? '250px' : '80px')}; /* Adjust margin based on sidebar state */
   transition: margin-left 0.3s ease;

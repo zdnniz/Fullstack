@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Sidebar from "./Sidebar";
-import { Content } from "../../styles/StudentsStyles";
+import { Content, StudentsContainer } from "../../styles/StudentsStyles";
 
 const StudentDetail = () => {
   const location = useLocation();
@@ -23,8 +23,9 @@ const StudentDetail = () => {
   if (!student) return <p>Loading student...</p>;
 
   return (
-    <Sidebar>
-      <Content>
+    <StudentsContainer>
+      <Sidebar />
+      <Content isOpen={true}>
         <div style={{ padding: '1rem' }}>
           <h1>{student.name}'s Details</h1>
           <p>Email: {student.email}</p>
@@ -32,7 +33,7 @@ const StudentDetail = () => {
           <p>Age: {student.age}</p>
         </div>
       </Content>
-    </Sidebar>
+    </StudentsContainer>
   );
 };
 
