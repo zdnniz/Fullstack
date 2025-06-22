@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AdminSignInContainer, FormContainer, InputField, SubmitButton } from '../styles/AdminSignInStyles';
 import axios from 'axios';
 
 const AdminSignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSignIn = async () => {
     console.log('admin Sign In:', { email, password });
@@ -12,7 +14,7 @@ const AdminSignIn = () => {
       const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/users/signin`, { email, password }, {withCredentials:true}); 
       if (response.status === 200) {
         // Sign-in successful, redirect to admin dashboard
-        window.location.href = '/admin/dashboard';
+        navigate('/admin/dashboard');
       } else {
         // Handle sign-in errors
         console.error('Sign-in failed');
