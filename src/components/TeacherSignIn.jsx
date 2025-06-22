@@ -1,5 +1,6 @@
 // TeacherSignIn.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 import { TeacherSignInContainer, FormContainer, InputField, SubmitButton } from '../styles/TeacherSignInStyles';
 
@@ -15,7 +16,7 @@ const TeacherSignIn = () => {
         { withCredentials: true }
       );
       console.log("message:", res.data.message);
-      navigate('/teacher/dashboard');  // 登录成功后跳转
+      navigate('/teacher/dashboard');  
     } catch (err) {
       console.error("Login failed", err.response?.data?.message || err.message);
     }
