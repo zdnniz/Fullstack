@@ -1,5 +1,5 @@
 // TeacherSignIn.js
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 import { TeacherSignInContainer, FormContainer, InputField, SubmitButton } from '../styles/TeacherSignInStyles';
@@ -7,6 +7,7 @@ import { TeacherSignInContainer, FormContainer, InputField, SubmitButton } from 
 const TeacherSignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSignIn = async () => {
     try {
