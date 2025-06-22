@@ -79,7 +79,7 @@ const StudentSection = () => {
         {searchedStudent && (
           <div style={{ marginBottom: '1rem' }}>
             <strong>Search Result:</strong> <br />
-            {searchedStudent.name} - {searchedStudent.age} - {searchedStudent.grade}
+            {searchedStudent.name} - {searchedStudent.age} - {searchedStudent.grade} - {searchedStudent.registerNumber}
             <br />
             <Link to={`/students/detail?name=${encodeURIComponent(searchedStudent.name)}`}>
               <AddStudentButton>View Details</AddStudentButton>
@@ -109,12 +109,17 @@ const StudentSection = () => {
                       value={editingStudent.grade}
                       onChange={(e) => setEditingStudent({ ...editingStudent, grade: e.target.value })}
                     />
+                     <input
+                      type="text"
+                      value={editingStudent.registerNumber}
+                      onChange={(e) => setEditingStudent({ ...editingStudent, registerNumber: e.target.value })}
+                    />
                     <AddStudentButton onClick={() => handleUpdate(student._id)}>Save</AddStudentButton>
                     <AddStudentButton onClick={() => setEditingStudent(null)}>Cancel</AddStudentButton>
                   </>
                 ) : (
                   <>
-                    {student.name} - {student.age} - {student.grade}
+                    {student.name} - {student.age} - {student.grade} - {student.registerNumber}
                     <span
                       style={{ marginLeft: '1rem', cursor: 'pointer' }}
                       onClick={() =>
@@ -124,6 +129,7 @@ const StudentSection = () => {
                           age: student.age,
                           grade: student.grade,
                           email: student.email,
+                          registerNumber: student.registerNumber,
                         })
                       }
                     >
