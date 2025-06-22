@@ -8,15 +8,14 @@ const TeacherSignIn = () => {
   const [password, setPassword] = useState('');
 
   const handleSignIn = async () => {
-    console.log('Teacher Sign In:', { email, password });
-
     try {
       const res = await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/api/v1/teachers/login`,
         { email, password },
         { withCredentials: true }
       );
-      console.log("message:", res.data.message); 
+      console.log("message:", res.data.message);
+      navigate('/teacher/dashboard');  // 登录成功后跳转
     } catch (err) {
       console.error("Login failed", err.response?.data?.message || err.message);
     }
@@ -40,7 +39,7 @@ const TeacherSignIn = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         /> 
-        <SubmitButton to="/teacher/dashboard" onClick={handleSignIn}>Sign In</SubmitButton>
+        <SubmitButton onClick={handleSignIn}>Sign In</SubmitButton>
       </FormContainer>
     </TeacherSignInContainer>
   );
