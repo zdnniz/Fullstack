@@ -9,6 +9,8 @@ const TeacherSignIn = () => {
 
   const handleSignIn = async () => {
     console.log('Teacher Sign In:', { email, password });
+    console.log("Submitting login with:", credentials);
+
     try {
       const res = await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/api/v1/teachers/login`,
