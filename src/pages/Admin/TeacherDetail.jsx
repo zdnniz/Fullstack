@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { Content, TeachersContainer } from '../../styles/TeachersStyles';
+import Sidebar from './Sidebar';
 
 const TeacherDetail = () => {
   const location = useLocation();
