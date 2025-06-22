@@ -16,7 +16,7 @@ import {
 } from '../../styles/StudentsStyles';
 
 const Students = () => {
-  const [newStudent, setNewStudent] = useState({ name: '', age: '', grade: '', email: '', registerNumber: '' });
+  const [newStudent, setNewStudent] = useState({ name: '', age: '', grade: '', email: '', registrationNumber: '' });
   const [students, setStudents] = useState([]);
   const [searchName, setSearchName] = useState('');
   const [searchedStudent, setSearchedStudent] = useState(null);
@@ -37,11 +37,11 @@ const Students = () => {
 
   const handleAddStudent = async (e) => {
     e.preventDefault();
-    if (newStudent.name.trim() !== '' && newStudent.age.trim() !== '' && newStudent.grade.trim() !== '' && newStudent.email.trim() !== '' && newStudent.registerNumber.trim() != '') {
+    if (newStudent.name.trim() !== '' && newStudent.age.trim() !== '' && newStudent.grade.trim() !== '' && newStudent.email.trim() !== '' && newStudent.registrationNumber.trim() != '') {
       try {
         const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/students`, newStudent);
         setStudents([...students, response.data.student]);
-        setNewStudent({ name: '', age: '', grade: '', email: '', registerNumber: '' });
+        setNewStudent({ name: '', age: '', grade: '', email: '', registrationNumber: '' });
       } catch (error) {
         console.error('Error adding student:', error);
       }
@@ -97,7 +97,7 @@ const Students = () => {
         {searchedStudent && (
           <div style={{ marginBottom: '1rem' }}>
             <strong>Search Result:</strong> <br />
-            {searchedStudent.name} - {searchedStudent.age} - {searchedStudent.grade} - {searchedStudent.registerNumber}
+            {searchedStudent.name} - {searchedStudent.age} - {searchedStudent.grade} - {searchedStudent.registrationNumber}
             <br />
             <Link to={`/students/detail?name=${encodeURIComponent(searchedStudent.name)}`}>
               <AddStudentButton>View Details</AddStudentButton>
@@ -134,9 +134,9 @@ const Students = () => {
             />
             <AddStudentInput
               type="text"
-              placeholder="Enter registerNumber"
-              value={newStudent.registerNumber}
-              onChange={(e) => setNewStudent({ ...newStudent, registerNumber: e.target.value })}
+              placeholder="Enter registrationNumber"
+              value={newStudent.registrationNumber}
+              onChange={(e) => setNewStudent({ ...newStudent, registrationNumber: e.target.value })}
             />
             <AddStudentButton type="submit">Add Student</AddStudentButton>
           </AddStudentForm>
@@ -162,15 +162,15 @@ const Students = () => {
                     />
                     <input
                       type="text"
-                      value={editingStudent.registerNumber}
-                      onChange={(e) => setEditingStudent({ ...editingStudent, registerNumber: e.target.value })}
+                      value={editingStudent.registrationNumber}
+                      onChange={(e) => setEditingStudent({ ...editingStudent, registrationNumber: e.target.value })}
                     />
                     <AddStudentButton onClick={() => handleUpdate(student._id)}>Save</AddStudentButton>
                     <AddStudentButton onClick={() => setEditingStudent(null)}>Cancel</AddStudentButton>
                   </>
                 ) : (
                   <>
-                    {student.name} - {student.age} - {student.grade} - {student.registerNumber}
+                    {student.name} - {student.age} - {student.grade} - {student.registrationNumber}
                     <span
                       style={{ marginLeft: '1rem', cursor: 'pointer' }}
                       onClick={() =>
@@ -180,7 +180,7 @@ const Students = () => {
                           age: student.age,
                           grade: student.grade,
                           email: student.email,
-                          registerNumber: student.registerNumber,
+                          registrationNumber: student.registrationNumber,
                         })
                       }
                     >
