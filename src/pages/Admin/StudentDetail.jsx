@@ -25,7 +25,8 @@ const StudentDetail = () => {
       <h1>{student.name}'s Details</h1>
       <p>Email: {student.email}</p>
       <p>Grade: {student.grade}</p>
-      <p>Age: {student.age}</p>  
+      <p>Age: {student.age}</p> 
+      <p>RegistrationNumber: {student.registrationNumber}</p> 
     </div>
   );
 };

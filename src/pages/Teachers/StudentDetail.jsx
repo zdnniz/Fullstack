@@ -31,6 +31,7 @@ const StudentDetail = () => {
           <p>Email: {student.email}</p>
           <p>Grade: {student.grade}</p>
           <p>Age: {student.age}</p>
+          <p>RegistrationNumber: {student.registrationNumber}</p>
         </div>
       </Content>
     </StudentsContainer>
