@@ -24,22 +24,8 @@ const TeacherProfileSection = () => {
     }
   };
 
-  const handleEditClick = () => {
-    setIsEditing(true);
-  };
-
   const handleInputChange = (field) => (e) => {
     setFormData({ ...formData, [field]: e.target.value });
-  };
-
-  const handleSave = async () => {
-    try {
-      const response = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/v1/teachers/settings`, formData, { withCredentials: true });
-      setTeacherInfo(response.data.teacher);
-      setIsEditing(false);
-    } catch (error) {
-      console.error('Error updating teacher profile:', error);
-    }
   };
 
   if (!teacherInfo) return <div>Loading...</div>;
