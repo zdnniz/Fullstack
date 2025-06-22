@@ -2,6 +2,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Content, StudentsContainer } from "../../styles/StudentsStyles";
 
 const StudentDetail = () => {
   const location = useLocation();
@@ -21,13 +22,18 @@ const StudentDetail = () => {
   if (!student) return <p>Loading student...</p>;
 
   return (
-    <div style={{ padding: '1rem' }}>
-      <h1>{student.name}'s Details</h1>
-      <p>Email: {student.email}</p>
-      <p>Grade: {student.grade}</p>
-      <p>Age: {student.age}</p> 
-      <p>RegistrationNumber: {student.registrationNumber}</p> 
-    </div>
+    <StudentsContainer>
+      <Sidebar />
+      <Content isOpen={true}>
+        <div style={{ padding: '1rem' }}>
+          <h1>{student.name}'s Details</h1>
+          <p>Email: {student.email}</p>
+          <p>Grade: {student.grade}</p>
+          <p>Age: {student.age}</p>
+          <p>RegistrationNumber: {student.registrationNumber}</p>
+        </div>
+      </Content>
+    </StudentsContainer>
   );
 };
 
