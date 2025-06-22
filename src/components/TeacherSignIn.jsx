@@ -9,7 +9,6 @@ const TeacherSignIn = () => {
 
   const handleSignIn = async () => {
     console.log('Teacher Sign In:', { email, password });
-    console.log("Submitting login with:", credentials);
 
     try {
       const res = await axios.post(
