@@ -1,11 +1,13 @@
 // StudentSignIn.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { StudentSignInContainer, FormContainer, InputField, SubmitButton } from '../styles/StudentSignInStyles';
 
 const StudentSignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSignIn = async () => {
     try {
@@ -15,6 +17,7 @@ const StudentSignIn = () => {
         { withCredentials: true } 
       );
       console.log("Login successful:", res.data.message);
+      navigate('/student/dashboard');
     } catch (err) {
       console.error("Login failed:", err.response?.data?.message || err.message);
     }
@@ -38,7 +41,7 @@ const StudentSignIn = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         /> 
-        <SubmitButton to="/student/dashboard" onClick={handleSignIn}>Sign In</SubmitButton>
+        <SubmitButton onClick={handleSignIn}>Sign In</SubmitButton>
       </FormContainer>
     </StudentSignInContainer>
   );
