@@ -16,3 +16,4 @@ Member Yanbo Cheng<br/>
 Frontend: <a href = 'https://github.com/zdnniz/Fullstack'>Link</a> <br/>
 Backend: <a href = 'https://github.com/zdnniz/Fullstack-backend'>Link</a><br/>
 
+UML: ![UML](src/assets/uml.png)
